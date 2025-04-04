@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail</title>
+    <link rel="icon" href="{% static 'image/logo1.ico' %}" type="image/x-icon">
+    <style>
+        body {
+        background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), 
+        url("{% static 'image\igntu_rcm3.png' %}"); 
+        background-size: cover;  
+        background-position: center; 
+        background-repeat: no-repeat; 
+        height: 100vh; 
+    }
+    </style>
+</head>
+<body>
+    <div style="background-color: aquamarine; box-shadow: 2px 2px 2px 2px red;width: 400px; padding: 20px; margin-left: 400px;">
+        <h1>{{studentpg.name}} : information</h1><hr>
+        <p><strong>Inrollment_no: </strong>{{studentpg.Inrollment_no}}</p>
+        <p><strong>AdharCard: </strong>{{studentpg.AdharCard}}</p>
+        <p><strong>Mobile_no: </strong>{{studentpg.Mobile}}</p>
+        <p><strong>Address: </strong>{{studentpg.Address}}</p>
+        <p><strong>course: </strong>{{studentpg.course}}</p>
+        <p><strong>Gender: </strong>{{studentpg.Gender}}</p>
+        <p><strong>Semester: </strong>{{studentpg.Semester}}</p>
+        <p><strong>Fee: </strong>{{studentpg.Fee}}</p>
+        <a href="/list">Back</a>
+    </div>
+</body>
+</html>

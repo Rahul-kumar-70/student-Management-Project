@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+{% extends 'testapp/base.html' %}
+ {% block body_block %}
+    <div style="box-shadow: 2px 2px 2px 2px black; height:420px;width:450px;background-color: aqua;">
+        <h1>Signup Page</h1><hr>
+        <form method="post">
+            {{ form.as_p}}
+            {% csrf_token %}
+            <input type="submit" value="signUp" class="btn btn-success">
+        </form>
+    </div>
+    {% endblock %}
