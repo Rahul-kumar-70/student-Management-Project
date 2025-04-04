@@ -11,12 +11,7 @@
 
     <style>
         body {
-        background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), 
-        url("{% static 'image\igntu_rcm2.png' %}"); 
-        background-size: cover;  
-        background-position: center; 
-        background-repeat: no-repeat; 
-        height: 100vh; 
+        background-color: aqua;
     }
     table{
         text-align: center;
@@ -38,6 +33,7 @@
                     <th>course</th>
                     <th>Semester</th>
                     <th>Gender</th>
+                    <th>Photo</th>
                     <th>Actions</th>
             </thead>
                 {% for s in studentphd_list %}
@@ -48,6 +44,13 @@
                     <td>{{ s.course }}</td>
                     <td>{{ s.Semester }}</td>
                     <td>{{ s.Gender }}</td>
+                    <td>
+                        {% if s.photo %}
+                            <img src="{{ s.photo.url }}" alt="Student Photo" width="100">
+                        {% else %}
+                            <span>No Photo</span>
+                        {% endif %}
+                    </td>
                     <td>
                         <a href="/phd/{{s.id}}" class="btn btn-primary">View</a> | 
                         <a href="/updatephd/{{s.id}}" class="btn btn-warning">Edit</a> | 

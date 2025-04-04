@@ -15,11 +15,19 @@
         background-repeat: no-repeat; 
         height: 100vh; 
     }
+    a{
+        text-decoration: none;
+    }
     </style>
 </head>
 <body>
     <div style="background-color: aquamarine; box-shadow: 2px 2px 2px 2px red;width: 400px; padding: 20px; margin-left: 400px;">
-        <h1>{{studentpg.name}} : information</h1><hr>
+        <h1>{{studentpg.name | upper}}</h1><hr>
+        {% if studentpg.photo %}
+            <img src="{{ studentpg.photo.url }}" alt="Student Photo" width="120" height="150px">
+        {% else %}
+            <p>No photo available.</p>
+        {% endif %}
         <p><strong>Inrollment_no: </strong>{{studentpg.Inrollment_no}}</p>
         <p><strong>AdharCard: </strong>{{studentpg.AdharCard}}</p>
         <p><strong>Mobile_no: </strong>{{studentpg.Mobile}}</p>
@@ -28,7 +36,14 @@
         <p><strong>Gender: </strong>{{studentpg.Gender}}</p>
         <p><strong>Semester: </strong>{{studentpg.Semester}}</p>
         <p><strong>Fee: </strong>{{studentpg.Fee}}</p>
-        <a href="/list">Back</a>
+        {% if studentpg.signature %}
+        <p><strong>signature: </strong></p>
+            <img src="{{ studentpg.signature.url }}" alt="Student signature" width="120" height="50px">
+        {% else %}
+            <p>No signature available.</p>
+        {% endif %}
+        <br><br>
+        <a href="/list" >Back</a>
     </div>
 </body>
 </html>

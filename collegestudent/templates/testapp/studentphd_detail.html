@@ -15,11 +15,19 @@
         background-repeat: no-repeat; 
         height: 100vh; 
     }
+    a{
+        text-decoration: none;
+    }
     </style>
 </head>
 <body>
     <div style="background-color: aquamarine; box-shadow: 2px 2px 2px 2px red;width: 400px; padding: 20px; margin-left: 400px;">
-        <h1>{{studentphd.name}} : information</h1><hr>
+        <h1>{{studentphd.name | upper}}</h1><hr>
+        {% if studentphd.photo %}
+            <img src="{{ studentphd.photo.url }}" alt="Student Photo" width="120" height="150px">
+        {% else %}
+            <p>No photo available.</p>
+        {% endif %}
         <p><strong>Inrollment_no: </strong>{{studentphd.Inrollment_no}}</p>
         <p><strong>AdharCard: </strong>{{studentphd.AdharCard}}</p>
         <p><strong>Mobile_no: </strong>{{studentphd.Mobile}}</p>
@@ -28,6 +36,13 @@
         <p><strong>Gender: </strong>{{studentphd.Gender}}</p>
         <p><strong>Semester: </strong>{{studentphd.Semester}}</p>
         <p><strong>Fee: </strong>{{studentphd.Fee}}</p>
+        {% if studentphd.signature %}
+        <p><strong>signature: </strong></p>
+            <img src="{{ studentphd.signature.url }}" alt="Student signature" width="120" height="50px">
+        {% else %}
+            <p>No signature available.</p>
+        {% endif %}
+        <br><br>
         <a href="/listphd">Back</a>
     </div>
 </body>
